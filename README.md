@@ -14,8 +14,7 @@ Behavior is mainly the same as VSCode
 
 ## Installation
 
-[Download tabbar-plugin.zip](https://github.com/gatziourasd/typora-tabbar-plugin/releases)
-
+Download [tabbar-plugin.zip](https://github.com/gatziourasd/releases) under Releases.
 
 ### Windows
 
@@ -33,14 +32,14 @@ You should now have a folder structure that looks like this: ``%userprofile%/App
 #### Add Plugin to Typora
 
 1. Locate your Typora installation (Typically: ``C:/Program Files/Typora`` ).
-
-2. Open ``C:/Program Files/Typora/resources/window.html`` in your favorite text editor. (Creating a backup of ``window.html`` is advised! ). **This may require Windows administrator privileges!**
-
-3. Insert the lines:
+2. Open a text editor with \<right click> **Run as administrator** and open the file ``C:/Program Files/Typora/resources/window.html`` . 
+    (Don't forget to select ``All Files (\*.*)`` to see .html files)
+3. 
+    Insert the lines:
 
   ```html
-<script src="typora://userData/plugins/tabbar/bundle.js" defer></script>
-<link rel="stylesheet" href="typora://userData/plugins/tabbar/bundle.css">
+  <script src="typora://userData/plugins/tabbar/bundle.js" defer></script>
+  <link rel="stylesheet" href="typora://userData/plugins/tabbar/bundle.css">
   ```
 
   Exactly after ``<!DOCTYPE html><html lang="en"><head>``.
@@ -72,4 +71,10 @@ Save the plugin to your Typora user folder or any other folder.
 **Add Plugin to Typora**
 
 Find the ``resources/window.html`` file in your Typora installation location and perform step 3. and 4. in [Add Plugin to Typora](#add-plugin-to-typora) (replace the src and href attributes with a path to your plugin location).
+
+
+
+## Uninstallation
+
+Simply reinstall Typora or remove the added lines ( [Add Plugin to Typora](#add-plugin-to-typora) ) from `<your_installation_path>/Typora/resources/window.html`
 
