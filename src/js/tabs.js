@@ -1,11 +1,24 @@
 const fileLibrary = document.getElementById("file-library");
-const fileTreeObserver = new MutationObserver(attachListenerToFileNode);
+const fileTreeObserver = new MutationObserver(() => {
+  attachListenerToFileNode(fileLibrary, "[data-path][data-is-directory=false]");
+});
+
+const searchResult = document.getElementById("file-library-search-result");
+const searchResultObserver = new MutationObserver(() => {
+  attachListenerToFileNode(searchResult, "[data-path]");
+});
+
+// const listView = document.getElementById("file-library-list-children");
+// const listViewObserver = new MutationObserver(() => {
+//   attachListenerToFileNode(listView, "[data-path]");
+// });
 
 let activeFile;
 
 let tabs = [];
-
 let onTabChanged = () => {};
+
+attachListenerToFileNode(fileLibrary, "[data-path][data-is-directory=false]");
 
 export function addEventListener(callback) {
   onTabChanged = callback;
@@ -57,29 +70,18 @@ function openTab(path, preview = true) {
   onTabChanged(tabs);
 }
 
-fileTreeObserver.observe(fileLibrary, {
-  childList: true,
-  subtree: true,
-  attributeFilter: ["class"],
-});
+function attachListenerToFileNode(rootElm, selector) {
+  const fileNodes = Array.from(rootElm.querySelectorAll(selector));
 
-attachListenerToFileNode();
-
-function attachListenerToFileNode() {
-  const fileNodes = Array.from(
-    fileLibrary.querySelectorAll("[data-path][data-is-directory=false]")
-  );
-
-  activeFile = "";
   fileNodes.forEach((node) => {
     const path = node.getAttribute("data-path");
     if (node.classList.contains("active")) activeFile = path;
 
     node.onclick = () => {
-      onFileNodeClicked(path);
+      openTab(path);
     };
     node.ondblclick = () => {
-      onFileNodeDblClicked(path);
+      openTab(path, false);
     };
   });
 
@@ -96,10 +98,20 @@ function attachListenerToFileNode() {
   onTabChanged(tabs);
 }
 
-function onFileNodeClicked(path) {
-  openTab(path);
-}
+fileTreeObserver.observe(fileLibrary, {
+  childList: true,
+  subtree: true,
+  attributeFilter: ["class"],
+});
 
-function onFileNodeDblClicked(path) {
-  openTab(path, false);
-}
+searchResultObserver.observe(searchResult, {
+  childList: true,
+  subtree: true,
+  attributeFilter: ["class"],
+});
+
+// listViewObserver.observe(listView, {
+//   childList: true,
+//   subtree: true,
+//   attributeFilter: ["class"],
+// });
