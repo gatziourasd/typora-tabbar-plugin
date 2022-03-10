@@ -8,8 +8,6 @@
 
   let tabList = [];
 
-  let scrollContainer;
-
   let draggedItemData = {};
   let draggedItemIndex = null;
   let hoveredItemIndex = null;
@@ -31,6 +29,8 @@
   }
 
   let cloneContainer;
+
+  let scrollContainer;
 </script>
 
 <svelte:body
@@ -56,7 +56,7 @@
       class="tab-clone"
       style="left: {mouseClientX -
         mouseGrabOffset -
-        (cloneContainer?.getBoundingClientRect()?.left ?? 0)}px"
+        (cloneContainer?.getBoundingClientRect()?.left ?? 0)}px;"
     >
       <Tab
         path={draggedItemData.path}
@@ -70,8 +70,10 @@
 
 <div
   class="container"
+  style="width: calc(100vw - var(--sidebar-width, 0));"
   bind:this={scrollContainer}
   on:wheel|preventDefault={(e) => {
+    console.log(e.deltaY);
     scrollContainer.scrollLeft += e.deltaY;
   }}
 >
@@ -128,7 +130,6 @@
 
   .container {
     background-color: var(--bg-color, white);
-    width: fit-content;
     height: 100%;
 
     display: flex;
@@ -136,21 +137,33 @@
     justify-content: flex-start;
 
     box-sizing: border-box;
-    /* border-bottom: solid 1px rgba(0, 0, 0, 0.07); */
 
-    overflow: hidden;
+    overflow-x: scroll;
   }
 
   .container::after {
     content: "";
     height: 100%;
     width: 100vw;
-    box-sizing: border-box;
     background-color: var(--side-bar-bg-color, gray);
     border-bottom: solid 1px rgba(0, 0, 0, 0.07);
   }
 
   .invisible {
     opacity: 0;
+  }
+
+  .container:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+  }
+
+  .container::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .container::-webkit-scrollbar-thumb {
+    height: 5px;
+    background-color: var(----active-file-bg-color, gray);
+    visibility: hidden;
   }
 </style>
