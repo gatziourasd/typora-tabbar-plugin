@@ -1,13 +1,20 @@
 # Typora TabBar Plugin
 
+https://user-images.githubusercontent.com/41538138/157715474-1b9433e3-dd62-4407-acfc-46c3319217d3.mp4
 
 
+Behavior is mainly the same as VSCode
+
+- Click once to open file in preview mode
+- Double click to open file in tab
+- Click "x" to close the tab
+- Drag to move the tab
+- Scroll to to reveal all tabs
 
 
 ## Installation
 
-Download tabbar-plugin.zip
-
+[Download tabbar-plugin.zip](https://github.com/gatziourasd/typora-tabbar-plugin/releases)
 
 
 ### Windows
@@ -27,7 +34,7 @@ You should now have a folder structure that looks like this: ``%userprofile%/App
 
 1. Locate your Typora installation (Typically: ``C:/Program Files/Typora`` ).
 
-2. Open ``C:/Program Files/Typora/resources/window.html`` in your favorite text editor. (Creating a backup of ``window.html`` is advised! ).
+2. Open ``C:/Program Files/Typora/resources/window.html`` in your favorite text editor. (Creating a backup of ``window.html`` is advised! ). **This may require Windows administrator privileges!**
 
 3. Insert the lines:
 
