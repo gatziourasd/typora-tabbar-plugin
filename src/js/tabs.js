@@ -51,6 +51,7 @@ function openTab(path, preview = true) {
     path,
     active: false,
     preview,
+    scrollTop: 0,
   };
 
   const pathIndex = tabs.findIndex((tab) => tab.path === path);
@@ -115,3 +116,37 @@ searchResultObserver.observe(searchResult, {
 //   subtree: true,
 //   attributeFilter: ["class"],
 // });
+
+//___REMEMBER-SCROLL-POSITION___
+
+const contentNode = document.getElementsByTagName("content")[0];
+const writeNode = document.getElementById("write");
+const outlineNode = document.getElementById("outline-content");
+
+let mouseOverContent = false;
+let mouseOverOutline = false;
+
+writeNode.onmouseenter = () => {
+  mouseOverContent = true;
+};
+
+writeNode.onmouseleave = () => {
+  mouseOverContent = false;
+};
+
+outlineNode.onmouseenter = () => {
+  mouseOverOutline = true;
+};
+
+outlineNode.onmouseleave = () => {
+  mouseOverOutline = false;
+};
+
+contentNode.onscroll = () => {
+  const activeTabIndex = tabs.findIndex((tab) => tab.active);
+  if (activeTabIndex > -1 && (mouseOverContent || mouseOverOutline)) {
+    tabs[activeTabIndex].scrollTop = contentNode.scrollTop;
+  } else if (activeTabIndex > -1) {
+    contentNode.scrollTop = tabs[activeTabIndex].scrollTop;
+  }
+};
