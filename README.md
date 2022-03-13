@@ -14,7 +14,7 @@ Behavior is mainly the same as VSCode
 
 ## Installation
 
-Download [tabbar-plugin.zip](https://github.com/gatziourasd/releases) under Releases.
+Download [tabbar-plugin.zip](https://github.com/gatziourasd/typora-tabbar-plugin/releases) under Releases.
 
 ### Windows
 
