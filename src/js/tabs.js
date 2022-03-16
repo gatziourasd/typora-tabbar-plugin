@@ -117,6 +117,16 @@ searchResultObserver.observe(searchResult, {
 //   attributeFilter: ["class"],
 // });
 
+setTimeout(() => {
+  const activeElm = fileLibrary.querySelector(
+    "div.active[data-path][data-is-directory=false]"
+  );
+  if (!activeElm) return;
+  const path = activeElm.getAttribute("data-path");
+  tabs.push({ path, preview: false, active: true, scrollTop: 0 });
+  onTabChanged(tabs);
+}, 500);
+
 //___REMEMBER-SCROLL-POSITION___
 
 const contentNode = document.getElementsByTagName("content")[0];
