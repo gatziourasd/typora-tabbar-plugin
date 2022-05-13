@@ -1,9 +1,14 @@
 <script>
   import Tab from "./Tab.svelte";
   import * as tabs from "../js/tabs.js";
+  import { onMount } from "svelte";
 
   tabs.addEventListener((newTabs) => {
     tabList = newTabs;
+  });
+
+  onMount(() => {
+    tabs.onMount();
   });
 
   let tabList = [];

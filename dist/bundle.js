@@ -1,2 +1,1519 @@
-var tabBarPlugin=function(){"use strict";function t(){}function e(t){return t()}function n(){return Object.create(null)}function o(t){t.forEach(e)}function i(t){return"function"==typeof t}function c(t,e){return t!=t?e==e:t!==e||t&&"object"==typeof t||"function"==typeof t}function l(t,e){t.appendChild(e)}function r(t,e,n){t.insertBefore(e,n||null)}function s(t){t.parentNode.removeChild(t)}function a(t){return document.createElement(t)}function u(){return t=" ",document.createTextNode(t);var t}function f(t,e,n,o){return t.addEventListener(e,n,o),()=>t.removeEventListener(e,n,o)}function d(t){return function(e){return e.stopPropagation(),t.call(this,e)}}function p(t,e,n){null==n?t.removeAttribute(e):t.getAttribute(e)!==n&&t.setAttribute(e,n)}function h(t,e,n,o){null===n?t.style.removeProperty(e):t.style.setProperty(e,n,o?"important":"")}function v(t,e,n){t.classList[n?"add":"remove"](e)}let m;function g(t){m=t}function $(){const t=function(){if(!m)throw new Error("Function called outside component initialization");return m}();return(e,n)=>{const o=t.$$.callbacks[e];if(o){const i=function(t,e,n=!1){const o=document.createEvent("CustomEvent");return o.initCustomEvent(t,n,!1,e),o}(e,n);o.slice().forEach((e=>{e.call(t,i)}))}}}function b(t,e){const n=t.$$.callbacks[e.type];n&&n.slice().forEach((t=>t.call(this,e)))}const y=[],w=[],E=[],k=[],x=Promise.resolve();let _=!1;function B(t){E.push(t)}const I=new Set;let T=0;function A(){const t=m;do{for(;T<y.length;){const t=y[T];T++,g(t),C(t.$$)}for(g(null),y.length=0,T=0;w.length;)w.pop()();for(let t=0;t<E.length;t+=1){const e=E[t];I.has(e)||(I.add(e),e())}E.length=0}while(y.length);for(;k.length;)k.pop()();_=!1,I.clear(),g(t)}function C(t){if(null!==t.fragment){t.update(),o(t.before_update);const e=t.dirty;t.dirty=[-1],t.fragment&&t.fragment.p(t.ctx,e),t.after_update.forEach(B)}}const j=new Set;let L;function M(){L={r:0,c:[],p:L}}function S(){L.r||o(L.c),L=L.p}function P(t,e){t&&t.i&&(j.delete(t),t.i(e))}function O(t,e,n,o){if(t&&t.o){if(j.has(t))return;j.add(t),L.c.push((()=>{j.delete(t),o&&(n&&t.d(1),o())})),t.o(e)}}function X(t,e){O(t,1,1,(()=>{e.delete(t.key)}))}function q(t){t&&t.c()}function N(t,n,c,l){const{fragment:r,on_mount:s,on_destroy:a,after_update:u}=t.$$;r&&r.m(n,c),l||B((()=>{const n=s.map(e).filter(i);a?a.push(...n):o(n),t.$$.on_mount=[]})),u.forEach(B)}function R(t,e){const n=t.$$;null!==n.fragment&&(o(n.on_destroy),n.fragment&&n.fragment.d(e),n.on_destroy=n.fragment=null,n.ctx=[])}function F(t,e){-1===t.$$.dirty[0]&&(y.push(t),_||(_=!0,x.then(A)),t.$$.dirty.fill(0)),t.$$.dirty[e/31|0]|=1<<e%31}function Y(e,i,c,l,r,a,u,f=[-1]){const d=m;g(e);const p=e.$$={fragment:null,ctx:null,props:a,update:t,not_equal:r,bound:n(),on_mount:[],on_destroy:[],on_disconnect:[],before_update:[],after_update:[],context:new Map(i.context||(d?d.$$.context:[])),callbacks:n(),dirty:f,skip_bound:!1,root:i.target||d.$$.root};u&&u(p.root);let h=!1;if(p.ctx=c?c(e,i.props||{},((t,n,...o)=>{const i=o.length?o[0]:n;return p.ctx&&r(p.ctx[t],p.ctx[t]=i)&&(!p.skip_bound&&p.bound[t]&&p.bound[t](i),h&&F(e,t)),n})):[],p.update(),h=!0,o(p.before_update),p.fragment=!!l&&l(p.ctx),i.target){if(i.hydrate){const t=function(t){return Array.from(t.childNodes)}(i.target);p.fragment&&p.fragment.l(t),t.forEach(s)}else p.fragment&&p.fragment.c();i.intro&&P(e.$$.fragment),N(e,i.target,i.anchor,i.customElement),A()}g(d)}class z{$destroy(){R(this,1),this.$destroy=t}$on(t,e){const n=this.$$.callbacks[t]||(this.$$.callbacks[t]=[]);return n.push(e),()=>{const t=n.indexOf(e);-1!==t&&n.splice(t,1)}}$set(t){var e;this.$$set&&(e=t,0!==Object.keys(e).length)&&(this.$$.skip_bound=!0,this.$$set(t),this.$$.skip_bound=!1)}}function D(e){let n,i,c,m,g,$,b,y,w;return{c(){n=a("div"),i=a("div"),c=u(),m=a("span"),m.textContent=`${e[3]}`,g=u(),$=a("span"),b=a("div"),p(i,"class","active-indicator svelte-1511mcd"),h(i,"display",e[0]?"block":"none"),p(m,"class","name svelte-1511mcd"),p(b,"class","close-icon svelte-1511mcd"),h($,"visibility",e[0]?"visible":"hidden"),p($,"class","close-button svelte-1511mcd"),v($,"single",e[2]),p(n,"class","container svelte-1511mcd"),v(n,"active",e[0]),v(n,"preview",e[1])},m(t,o){r(t,n,o),l(n,i),l(n,c),l(n,m),l(n,g),l(n,$),l($,b),y||(w=[f($,"click",d(e[5])),f($,"mousedown",d(e[7])),f(n,"mousedown",e[4])],y=!0)},p(t,[e]){1&e&&h(i,"display",t[0]?"block":"none"),1&e&&h($,"visibility",t[0]?"visible":"hidden"),4&e&&v($,"single",t[2]),1&e&&v(n,"active",t[0]),2&e&&v(n,"preview",t[1])},i:t,o:t,d(t){t&&s(n),y=!1,o(w)}}}function G(t,e,n){let{path:o=""}=e,{active:i=!1}=e,{preview:c=!1}=e,{single:l=!1}=e,r=o.match(/.*[/\\](.*)/)?.[1]??o;const s=$();return t.$$set=t=>{"path"in t&&n(6,o=t.path),"active"in t&&n(0,i=t.active),"preview"in t&&n(1,c=t.preview),"single"in t&&n(2,l=t.single)},[i,c,l,r,function(){s("openfile",{path:o})},function(){s("closefile",{path:o})},o,function(e){b.call(this,t,e)}]}class H extends z{constructor(t){super(),Y(this,t,G,D,c,{path:6,active:0,preview:1,single:2})}}const J=document.getElementById("file-library"),K=new MutationObserver((()=>{nt(J,"[data-path][data-is-directory=false]")})),Q=document.getElementById("file-library-search-result"),U=new MutationObserver((()=>{nt(Q,"[data-path]")}));let V,W=[],Z=()=>{};function tt(t){J.querySelector(`[data-path="${t.replace(/\\/gm,"\\\\")}"] > div.file-node-content`)?.click()}function et(t,e=!0){const n={path:t,active:!1,preview:e,scrollTop:0},o=W.findIndex((e=>e.path===t));if(o>-1)W[o].preview||(n.preview=!1),W[o].preview=n.preview;else{const e=W.findIndex((t=>!0===t.preview));e>-1?W[e].path=t:W.push(n)}Z(W)}function nt(t,e){Array.from(t.querySelectorAll(e)).forEach((t=>{const e=t.getAttribute("data-path");t.classList.contains("active")&&(V=e),t.onclick=()=>{et(e)},t.ondblclick=()=>{et(e,!1)}})),W=W.map((t=>t.path===V?(t.active=!0,t):(t.active=!1,t))),Z(W)}nt(J,"[data-path][data-is-directory=false]"),K.observe(J,{childList:!0,subtree:!0,attributeFilter:["class"]}),U.observe(Q,{childList:!0,subtree:!0,attributeFilter:["class"]}),setTimeout((()=>{const t=J.querySelector("div.active[data-path][data-is-directory=false]");if(!t)return;const e=t.getAttribute("data-path");W.push({path:e,preview:!1,active:!0,scrollTop:0}),Z(W)}),500);const ot=document.getElementsByTagName("content")[0],it=document.getElementById("write"),ct=document.getElementById("outline-content");let lt=!1,rt=!1;function st(t,e,n){const o=t.slice();return o[18]=e[n],o[20]=n,o}function at(t){let e,n,o;return n=new H({props:{path:t[3].path,active:t[3].active,preview:t[3].preview,single:1===t[0].length}}),{c(){e=a("div"),q(n.$$.fragment),p(e,"class","tab-clone svelte-pb8ij7"),h(e,"left",t[4]-t[5]-(t[6]?.getBoundingClientRect()?.left??0)+"px")},m(t,i){r(t,e,i),N(n,e,null),o=!0},p(t,i){const c={};8&i&&(c.path=t[3].path),8&i&&(c.active=t[3].active),8&i&&(c.preview=t[3].preview),1&i&&(c.single=1===t[0].length),n.$set(c),(!o||112&i)&&h(e,"left",t[4]-t[5]-(t[6]?.getBoundingClientRect()?.left??0)+"px")},i(t){o||(P(n.$$.fragment,t),o=!0)},o(t){O(n.$$.fragment,t),o=!1},d(t){t&&s(e),R(n)}}}function ut(t,e){let n,i,c,h,m,g;function $(...t){return e[14](e[18],e[20],...t)}function b(...t){return e[15](e[20],...t)}return i=new H({props:{path:e[18].path,active:e[18].active,preview:e[18].preview,single:1===e[0].length}}),i.$on("openfile",e[12]),i.$on("closefile",e[13]),{key:t,first:null,c(){n=a("div"),q(i.$$.fragment),c=u(),p(n,"class","grab-container svelte-pb8ij7"),v(n,"invisible",e[18].path===e[3]?.path),this.first=n},m(t,e){r(t,n,e),N(i,n,null),l(n,c),h=!0,m||(g=[f(n,"mousedown",d($)),f(n,"mouseover",b)],m=!0)},p(t,o){e=t;const c={};1&o&&(c.path=e[18].path),1&o&&(c.active=e[18].active),1&o&&(c.preview=e[18].preview),1&o&&(c.single=1===e[0].length),i.$set(c),9&o&&v(n,"invisible",e[18].path===e[3]?.path)},i(t){h||(P(i.$$.fragment,t),h=!0)},o(t){O(i.$$.fragment,t),h=!1},d(t){t&&s(n),R(i),m=!1,o(g)}}}function ft(t){let e,n,i,c,l,d,v,m=[],g=new Map,$=t[4]&&null!==t[1]&&at(t),b=t[0];const y=t=>t[18].path;for(let e=0;e<b.length;e+=1){let n=st(t,b,e),o=y(n);g.set(o,m[e]=ut(o,n))}return{c(){e=u(),n=a("div"),$&&$.c(),i=u(),c=a("div");for(let t=0;t<m.length;t+=1)m[t].c();p(n,"class","clone-container svelte-pb8ij7"),p(c,"class","container svelte-pb8ij7"),h(c,"width","calc(100vw - var(--sidebar-width, 0))")},m(o,s){r(o,e,s),r(o,n,s),$&&$.m(n,null),t[11](n),r(o,i,s),r(o,c,s);for(let t=0;t<m.length;t+=1)m[t].m(c,null);var a;t[16](c),l=!0,d||(v=[f(document.body,"mousemove",t[8]),f(document.body,"mouseup",t[9]),f(document.body,"mouseleave",t[10]),f(c,"wheel",(a=t[17],function(t){return t.preventDefault(),a.call(this,t)}))],d=!0)},p(t,[e]){t[4]&&null!==t[1]?$?($.p(t,e),18&e&&P($,1)):($=at(t),$.c(),P($,1),$.m(n,null)):$&&(M(),O($,1,1,(()=>{$=null})),S()),63&e&&(b=t[0],M(),m=function(t,e,n,o,i,c,l,r,s,a,u,f){let d=t.length,p=c.length,h=d;const v={};for(;h--;)v[t[h].key]=h;const m=[],g=new Map,$=new Map;for(h=p;h--;){const t=f(i,c,h),r=n(t);let s=l.get(r);s?o&&s.p(t,e):(s=a(r,t),s.c()),g.set(r,m[h]=s),r in v&&$.set(r,Math.abs(h-v[r]))}const b=new Set,y=new Set;function w(t){P(t,1),t.m(r,u),l.set(t.key,t),u=t.first,p--}for(;d&&p;){const e=m[p-1],n=t[d-1],o=e.key,i=n.key;e===n?(u=e.first,d--,p--):g.has(i)?!l.has(o)||b.has(o)?w(e):y.has(i)?d--:$.get(o)>$.get(i)?(y.add(o),w(e)):(b.add(i),d--):(s(n,l),d--)}for(;d--;){const e=t[d];g.has(e.key)||s(e,l)}for(;p;)w(m[p-1]);return m}(m,e,y,1,t,b,g,c,X,ut,null,st),S())},i(t){if(!l){P($);for(let t=0;t<b.length;t+=1)P(m[t]);l=!0}},o(t){O($);for(let t=0;t<m.length;t+=1)O(m[t]);l=!1},d(l){l&&s(e),l&&s(n),$&&$.d(),t[11](null),l&&s(i),l&&s(c);for(let t=0;t<m.length;t+=1)m[t].d();t[16](null),d=!1,o(v)}}}function dt(t,e,n){Z=t=>{n(0,r=t)};let o,i,c,l,r=[],s={},a=null,u=null;return t.$$.update=()=>{7&t.$$.dirty&&null!==a&&null!==u&&a!==u&&(n(0,[r[a],r[u]]=[r[u],r[a]],r),n(1,a=u))},[r,a,u,s,o,i,c,l,t=>{n(4,o=t.clientX)},t=>{n(3,s={}),n(1,a=null),n(2,u=null),n(4,o=t.clientX)},t=>{n(3,s={}),n(1,a=null),n(2,u=null),n(4,o=t.clientX)},function(t){w[t?"unshift":"push"]((()=>{c=t,n(6,c)}))},t=>{tt(t.detail.path)},t=>{!function(t){const e=W.findIndex((e=>e.path===t));W.length<=1||(0===e?(W.splice(0,1),tt(W[W.length-1].path)):(W.splice(e,1),tt(W[e-1].path))),Z(W)}(t.detail.path)},(t,e,c)=>{n(3,s=t),n(1,a=e),n(4,o=c.clientX),n(5,i=c.clientX-c.target.getBoundingClientRect().left)},(t,e)=>{n(2,u=t)},function(t){w[t?"unshift":"push"]((()=>{l=t,n(7,l)}))},t=>{console.log(t.deltaY),n(7,l.scrollLeft+=t.deltaY,l)}]}it.onmouseenter=()=>{lt=!0},it.onmouseleave=()=>{lt=!1},ct.onmouseenter=()=>{rt=!0},ct.onmouseleave=()=>{rt=!1},ot.onscroll=()=>{const t=W.findIndex((t=>t.active));t>-1&&(lt||rt)?W[t].scrollTop=ot.scrollTop:t>-1&&(ot.scrollTop=W[t].scrollTop)};class pt extends z{constructor(t){super(),Y(this,t,dt,ft,c,{})}}function ht(e){let n,o,i,c;return i=new pt({}),{c(){n=a("div"),o=a("div"),q(i.$$.fragment),p(o,"class","tab-bar-container svelte-1vhgd3o"),p(n,"class","container svelte-1vhgd3o")},m(t,e){r(t,n,e),l(n,o),N(i,o,null),c=!0},p:t,i(t){c||(P(i.$$.fragment,t),c=!0)},o(t){O(i.$$.fragment,t),c=!1},d(t){t&&s(n),R(i)}}}function vt(t){return console.log("Tabs Plugin Running!"),[]}const mt=document.createElement("div");mt.setAttribute("id","svelte-target"),document.getElementById("write-style").parentElement.insertBefore(mt,document.getElementById("write-style"));return new class extends z{constructor(t){super(),Y(this,t,vt,ht,c,{})}}({target:mt})}();
+
+(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
+var tabBarPlugin = (function () {
+    'use strict';
+
+    function noop() { }
+    function add_location(element, file, line, column, char) {
+        element.__svelte_meta = {
+            loc: { file, line, column, char }
+        };
+    }
+    function run(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+    function is_empty(obj) {
+        return Object.keys(obj).length === 0;
+    }
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        node.parentNode.removeChild(node);
+    }
+    function element(name) {
+        return document.createElement(name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
+    function listen(node, event, handler, options) {
+        node.addEventListener(event, handler, options);
+        return () => node.removeEventListener(event, handler, options);
+    }
+    function prevent_default(fn) {
+        return function (event) {
+            event.preventDefault();
+            // @ts-ignore
+            return fn.call(this, event);
+        };
+    }
+    function stop_propagation(fn) {
+        return function (event) {
+            event.stopPropagation();
+            // @ts-ignore
+            return fn.call(this, event);
+        };
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else if (node.getAttribute(attribute) !== value)
+            node.setAttribute(attribute, value);
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+    function set_style(node, key, value, important) {
+        if (value === null) {
+            node.style.removeProperty(key);
+        }
+        else {
+            node.style.setProperty(key, value, important ? 'important' : '');
+        }
+    }
+    function toggle_class(element, name, toggle) {
+        element.classList[toggle ? 'add' : 'remove'](name);
+    }
+    function custom_event(type, detail, bubbles = false) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, bubbles, false, detail);
+        return e;
+    }
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+    function get_current_component() {
+        if (!current_component)
+            throw new Error('Function called outside component initialization');
+        return current_component;
+    }
+    function onMount$1(fn) {
+        get_current_component().$$.on_mount.push(fn);
+    }
+    function createEventDispatcher() {
+        const component = get_current_component();
+        return (type, detail) => {
+            const callbacks = component.$$.callbacks[type];
+            if (callbacks) {
+                // TODO are there situations where events could be dispatched
+                // in a server (non-DOM) environment?
+                const event = custom_event(type, detail);
+                callbacks.slice().forEach(fn => {
+                    fn.call(component, event);
+                });
+            }
+        };
+    }
+    // TODO figure out if we still want to support
+    // shorthand events, or if we want to implement
+    // a real bubbling mechanism
+    function bubble(component, event) {
+        const callbacks = component.$$.callbacks[event.type];
+        if (callbacks) {
+            // @ts-ignore
+            callbacks.slice().forEach(fn => fn.call(this, event));
+        }
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    const render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    // flush() calls callbacks in this order:
+    // 1. All beforeUpdate callbacks, in order: parents before children
+    // 2. All bind:this callbacks, in reverse order: children before parents.
+    // 3. All afterUpdate callbacks, in order: parents before children. EXCEPT
+    //    for afterUpdates called during the initial onMount, which are called in
+    //    reverse order: children before parents.
+    // Since callbacks might update component values, which could trigger another
+    // call to flush(), the following steps guard against this:
+    // 1. During beforeUpdate, any updated components will be added to the
+    //    dirty_components array and will cause a reentrant call to flush(). Because
+    //    the flush index is kept outside the function, the reentrant call will pick
+    //    up where the earlier call left off and go through all dirty components. The
+    //    current_component value is saved and restored so that the reentrant call will
+    //    not interfere with the "parent" flush() call.
+    // 2. bind:this callbacks cannot trigger new flush() calls.
+    // 3. During afterUpdate, any updated components will NOT have their afterUpdate
+    //    callback called a second time; the seen_callbacks set, outside the flush()
+    //    function, guarantees this behavior.
+    const seen_callbacks = new Set();
+    let flushidx = 0; // Do *not* move this inside the flush() function
+    function flush() {
+        const saved_component = current_component;
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            while (flushidx < dirty_components.length) {
+                const component = dirty_components[flushidx];
+                flushidx++;
+                set_current_component(component);
+                update(component.$$);
+            }
+            set_current_component(null);
+            dirty_components.length = 0;
+            flushidx = 0;
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                    callback();
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+        seen_callbacks.clear();
+        set_current_component(saved_component);
+    }
+    function update($$) {
+        if ($$.fragment !== null) {
+            $$.update();
+            run_all($$.before_update);
+            const dirty = $$.dirty;
+            $$.dirty = [-1];
+            $$.fragment && $$.fragment.p($$.ctx, dirty);
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+    const outroing = new Set();
+    let outros;
+    function group_outros() {
+        outros = {
+            r: 0,
+            c: [],
+            p: outros // parent group
+        };
+    }
+    function check_outros() {
+        if (!outros.r) {
+            run_all(outros.c);
+        }
+        outros = outros.p;
+    }
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+    function transition_out(block, local, detach, callback) {
+        if (block && block.o) {
+            if (outroing.has(block))
+                return;
+            outroing.add(block);
+            outros.c.push(() => {
+                outroing.delete(block);
+                if (callback) {
+                    if (detach)
+                        block.d(1);
+                    callback();
+                }
+            });
+            block.o(local);
+        }
+    }
+
+    const globals = (typeof window !== 'undefined'
+        ? window
+        : typeof globalThis !== 'undefined'
+            ? globalThis
+            : global);
+    function outro_and_destroy_block(block, lookup) {
+        transition_out(block, 1, 1, () => {
+            lookup.delete(block.key);
+        });
+    }
+    function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, lookup, node, destroy, create_each_block, next, get_context) {
+        let o = old_blocks.length;
+        let n = list.length;
+        let i = o;
+        const old_indexes = {};
+        while (i--)
+            old_indexes[old_blocks[i].key] = i;
+        const new_blocks = [];
+        const new_lookup = new Map();
+        const deltas = new Map();
+        i = n;
+        while (i--) {
+            const child_ctx = get_context(ctx, list, i);
+            const key = get_key(child_ctx);
+            let block = lookup.get(key);
+            if (!block) {
+                block = create_each_block(key, child_ctx);
+                block.c();
+            }
+            else if (dynamic) {
+                block.p(child_ctx, dirty);
+            }
+            new_lookup.set(key, new_blocks[i] = block);
+            if (key in old_indexes)
+                deltas.set(key, Math.abs(i - old_indexes[key]));
+        }
+        const will_move = new Set();
+        const did_move = new Set();
+        function insert(block) {
+            transition_in(block, 1);
+            block.m(node, next);
+            lookup.set(block.key, block);
+            next = block.first;
+            n--;
+        }
+        while (o && n) {
+            const new_block = new_blocks[n - 1];
+            const old_block = old_blocks[o - 1];
+            const new_key = new_block.key;
+            const old_key = old_block.key;
+            if (new_block === old_block) {
+                // do nothing
+                next = new_block.first;
+                o--;
+                n--;
+            }
+            else if (!new_lookup.has(old_key)) {
+                // remove old block
+                destroy(old_block, lookup);
+                o--;
+            }
+            else if (!lookup.has(new_key) || will_move.has(new_key)) {
+                insert(new_block);
+            }
+            else if (did_move.has(old_key)) {
+                o--;
+            }
+            else if (deltas.get(new_key) > deltas.get(old_key)) {
+                did_move.add(new_key);
+                insert(new_block);
+            }
+            else {
+                will_move.add(old_key);
+                o--;
+            }
+        }
+        while (o--) {
+            const old_block = old_blocks[o];
+            if (!new_lookup.has(old_block.key))
+                destroy(old_block, lookup);
+        }
+        while (n)
+            insert(new_blocks[n - 1]);
+        return new_blocks;
+    }
+    function validate_each_keys(ctx, list, get_context, get_key) {
+        const keys = new Set();
+        for (let i = 0; i < list.length; i++) {
+            const key = get_key(get_context(ctx, list, i));
+            if (keys.has(key)) {
+                throw new Error('Cannot have duplicate keys in a keyed each');
+            }
+            keys.add(key);
+        }
+    }
+    function create_component(block) {
+        block && block.c();
+    }
+    function mount_component(component, target, anchor, customElement) {
+        const { fragment, on_mount, on_destroy, after_update } = component.$$;
+        fragment && fragment.m(target, anchor);
+        if (!customElement) {
+            // onMount happens before the initial afterUpdate
+            add_render_callback(() => {
+                const new_on_destroy = on_mount.map(run).filter(is_function);
+                if (on_destroy) {
+                    on_destroy.push(...new_on_destroy);
+                }
+                else {
+                    // Edge case - component was destroyed immediately,
+                    // most likely as a result of a binding initialising
+                    run_all(new_on_destroy);
+                }
+                component.$$.on_mount = [];
+            });
+        }
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        const $$ = component.$$;
+        if ($$.fragment !== null) {
+            run_all($$.on_destroy);
+            $$.fragment && $$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            $$.on_destroy = $$.fragment = null;
+            $$.ctx = [];
+        }
+    }
+    function make_dirty(component, i) {
+        if (component.$$.dirty[0] === -1) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty.fill(0);
+        }
+        component.$$.dirty[(i / 31) | 0] |= (1 << (i % 31));
+    }
+    function init(component, options, instance, create_fragment, not_equal, props, append_styles, dirty = [-1]) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: null,
+            // state
+            props,
+            update: noop,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            on_disconnect: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(options.context || (parent_component ? parent_component.$$.context : [])),
+            // everything else
+            callbacks: blank_object(),
+            dirty,
+            skip_bound: false,
+            root: options.target || parent_component.$$.root
+        };
+        append_styles && append_styles($$.root);
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, options.props || {}, (i, ret, ...rest) => {
+                const value = rest.length ? rest[0] : ret;
+                if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
+                    if (!$$.skip_bound && $$.bound[i])
+                        $$.bound[i](value);
+                    if (ready)
+                        make_dirty(component, i);
+                }
+                return ret;
+            })
+            : [];
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        // `false` as a special case of no DOM component
+        $$.fragment = create_fragment ? create_fragment($$.ctx) : false;
+        if (options.target) {
+            if (options.hydrate) {
+                const nodes = children(options.target);
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.l(nodes);
+                nodes.forEach(detach);
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor, options.customElement);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    /**
+     * Base class for Svelte components. Used when dev=false.
+     */
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set($$props) {
+            if (this.$$set && !is_empty($$props)) {
+                this.$$.skip_bound = true;
+                this.$$set($$props);
+                this.$$.skip_bound = false;
+            }
+        }
+    }
+
+    function dispatch_dev(type, detail) {
+        document.dispatchEvent(custom_event(type, Object.assign({ version: '3.46.4' }, detail), true));
+    }
+    function append_dev(target, node) {
+        dispatch_dev('SvelteDOMInsert', { target, node });
+        append(target, node);
+    }
+    function insert_dev(target, node, anchor) {
+        dispatch_dev('SvelteDOMInsert', { target, node, anchor });
+        insert(target, node, anchor);
+    }
+    function detach_dev(node) {
+        dispatch_dev('SvelteDOMRemove', { node });
+        detach(node);
+    }
+    function listen_dev(node, event, handler, options, has_prevent_default, has_stop_propagation) {
+        const modifiers = options === true ? ['capture'] : options ? Array.from(Object.keys(options)) : [];
+        if (has_prevent_default)
+            modifiers.push('preventDefault');
+        if (has_stop_propagation)
+            modifiers.push('stopPropagation');
+        dispatch_dev('SvelteDOMAddEventListener', { node, event, handler, modifiers });
+        const dispose = listen(node, event, handler, options);
+        return () => {
+            dispatch_dev('SvelteDOMRemoveEventListener', { node, event, handler, modifiers });
+            dispose();
+        };
+    }
+    function attr_dev(node, attribute, value) {
+        attr(node, attribute, value);
+        if (value == null)
+            dispatch_dev('SvelteDOMRemoveAttribute', { node, attribute });
+        else
+            dispatch_dev('SvelteDOMSetAttribute', { node, attribute, value });
+    }
+    function validate_each_argument(arg) {
+        if (typeof arg !== 'string' && !(arg && typeof arg === 'object' && 'length' in arg)) {
+            let msg = '{#each} only iterates over array-like objects.';
+            if (typeof Symbol === 'function' && arg && Symbol.iterator in arg) {
+                msg += ' You can use a spread to convert this iterable into an array.';
+            }
+            throw new Error(msg);
+        }
+    }
+    function validate_slots(name, slot, keys) {
+        for (const slot_key of Object.keys(slot)) {
+            if (!~keys.indexOf(slot_key)) {
+                console.warn(`<${name}> received an unexpected slot "${slot_key}".`);
+            }
+        }
+    }
+    /**
+     * Base class for Svelte components with some minor dev-enhancements. Used when dev=true.
+     */
+    class SvelteComponentDev extends SvelteComponent {
+        constructor(options) {
+            if (!options || (!options.target && !options.$$inline)) {
+                throw new Error("'target' is a required option");
+            }
+            super();
+        }
+        $destroy() {
+            super.$destroy();
+            this.$destroy = () => {
+                console.warn('Component was already destroyed'); // eslint-disable-line no-console
+            };
+        }
+        $capture_state() { }
+        $inject_state() { }
+    }
+
+    /* src\lib\Tab.svelte generated by Svelte v3.46.4 */
+    const file$2 = "src\\lib\\Tab.svelte";
+
+    function create_fragment$2(ctx) {
+    	let div2;
+    	let div0;
+    	let t0;
+    	let span0;
+    	let t2;
+    	let span1;
+    	let div1;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			div2 = element("div");
+    			div0 = element("div");
+    			t0 = space();
+    			span0 = element("span");
+    			span0.textContent = `${/*name*/ ctx[3]}`;
+    			t2 = space();
+    			span1 = element("span");
+    			div1 = element("div");
+    			attr_dev(div0, "class", "active-indicator svelte-1511mcd");
+    			set_style(div0, "display", /*active*/ ctx[0] ? 'block' : 'none');
+    			add_location(div0, file$2, 21, 2, 510);
+    			attr_dev(span0, "class", "name svelte-1511mcd");
+    			add_location(span0, file$2, 22, 2, 592);
+    			attr_dev(div1, "class", "close-icon svelte-1511mcd");
+    			add_location(div1, file$2, 30, 4, 821);
+    			set_style(span1, "visibility", /*active*/ ctx[0] ? 'visible' : 'hidden');
+    			attr_dev(span1, "class", "close-button svelte-1511mcd");
+    			toggle_class(span1, "single", /*single*/ ctx[2]);
+    			add_location(span1, file$2, 23, 2, 628);
+    			attr_dev(div2, "class", "container svelte-1511mcd");
+    			toggle_class(div2, "active", /*active*/ ctx[0]);
+    			toggle_class(div2, "preview", /*preview*/ ctx[1]);
+    			add_location(div2, file$2, 20, 0, 432);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div0);
+    			append_dev(div2, t0);
+    			append_dev(div2, span0);
+    			append_dev(div2, t2);
+    			append_dev(div2, span1);
+    			append_dev(span1, div1);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(span1, "click", stop_propagation(/*closeTab*/ ctx[5]), false, false, true),
+    					listen_dev(span1, "mousedown", stop_propagation(/*mousedown_handler*/ ctx[7]), false, false, true),
+    					listen_dev(div2, "mousedown", /*openFile*/ ctx[4], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*active*/ 1) {
+    				set_style(div0, "display", /*active*/ ctx[0] ? 'block' : 'none');
+    			}
+
+    			if (dirty & /*active*/ 1) {
+    				set_style(span1, "visibility", /*active*/ ctx[0] ? 'visible' : 'hidden');
+    			}
+
+    			if (dirty & /*single*/ 4) {
+    				toggle_class(span1, "single", /*single*/ ctx[2]);
+    			}
+
+    			if (dirty & /*active*/ 1) {
+    				toggle_class(div2, "active", /*active*/ ctx[0]);
+    			}
+
+    			if (dirty & /*preview*/ 2) {
+    				toggle_class(div2, "preview", /*preview*/ ctx[1]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div2);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$2.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$2($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Tab', slots, []);
+    	let { path = "" } = $$props;
+    	let { active = false } = $$props;
+    	let { preview = false } = $$props;
+    	let { single = false } = $$props;
+    	let name = path.match(/.*[/\\](.*)/)?.[1] ?? path;
+    	const dispatch = createEventDispatcher();
+
+    	function openFile() {
+    		dispatch("openfile", { path });
+    	}
+
+    	function closeTab() {
+    		dispatch("closefile", { path });
+    	}
+
+    	const writable_props = ['path', 'active', 'preview', 'single'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Tab> was created with unknown prop '${key}'`);
+    	});
+
+    	function mousedown_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('path' in $$props) $$invalidate(6, path = $$props.path);
+    		if ('active' in $$props) $$invalidate(0, active = $$props.active);
+    		if ('preview' in $$props) $$invalidate(1, preview = $$props.preview);
+    		if ('single' in $$props) $$invalidate(2, single = $$props.single);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		createEventDispatcher,
+    		path,
+    		active,
+    		preview,
+    		single,
+    		name,
+    		dispatch,
+    		openFile,
+    		closeTab
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('path' in $$props) $$invalidate(6, path = $$props.path);
+    		if ('active' in $$props) $$invalidate(0, active = $$props.active);
+    		if ('preview' in $$props) $$invalidate(1, preview = $$props.preview);
+    		if ('single' in $$props) $$invalidate(2, single = $$props.single);
+    		if ('name' in $$props) $$invalidate(3, name = $$props.name);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [active, preview, single, name, openFile, closeTab, path, mousedown_handler];
+    }
+
+    class Tab extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, {
+    			path: 6,
+    			active: 0,
+    			preview: 1,
+    			single: 2
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Tab",
+    			options,
+    			id: create_fragment$2.name
+    		});
+    	}
+
+    	get path() {
+    		throw new Error("<Tab>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set path(value) {
+    		throw new Error("<Tab>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get active() {
+    		throw new Error("<Tab>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set active(value) {
+    		throw new Error("<Tab>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get preview() {
+    		throw new Error("<Tab>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set preview(value) {
+    		throw new Error("<Tab>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get single() {
+    		throw new Error("<Tab>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set single(value) {
+    		throw new Error("<Tab>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    const fileLibrary = document.getElementById("file-library");
+    const fileTreeObserver = new MutationObserver(() => {
+      attachListenerToFileNode(fileLibrary, "[data-path][data-is-directory=false]");
+    });
+
+    const searchResult = document.getElementById("file-library-search-result");
+    const searchResultObserver = new MutationObserver(() => {
+      attachListenerToFileNode(searchResult, "[data-path]");
+    });
+
+    // const listView = document.getElementById("file-library-list-children");
+    // const listViewObserver = new MutationObserver(() => {
+    //   attachListenerToFileNode(listView, "[data-path]");
+    // });
+
+    let activeFile;
+
+    let tabs = [];
+    let onTabChanged = () => {};
+
+    attachListenerToFileNode(fileLibrary, "[data-path][data-is-directory=false]");
+
+    function addEventListener(callback) {
+      onTabChanged = callback;
+    }
+
+    function openFile(path) {
+      fileLibrary
+        .querySelector(
+          `[data-path=\"${path.replace(/\\/gm, "\\\\")}\"] > div.file-node-content`
+        )
+        ?.click();
+    }
+    function closeFile(path) {
+      const pathIndex = tabs.findIndex((tab) => tab.path === path);
+
+      if (tabs.length <= 1) ; else if (pathIndex === 0) {
+        tabs.splice(0, 1);
+        openFile(tabs[tabs.length - 1].path);
+      } else {
+        tabs.splice(pathIndex, 1);
+        openFile(tabs[pathIndex - 1].path);
+      }
+
+      onTabChanged(tabs);
+    }
+
+    function openTab(path, preview = true) {
+      const tab = {
+        path,
+        active: false,
+        preview,
+        scrollTop: 0,
+      };
+
+      const pathIndex = tabs.findIndex((tab) => tab.path === path);
+
+      if (pathIndex > -1) {
+        if (!tabs[pathIndex].preview) tab.preview = false;
+        tabs[pathIndex].preview = tab.preview;
+      } else {
+        const previewIndex = tabs.findIndex((tab) => tab.preview === true);
+        if (previewIndex > -1) {
+          tabs[previewIndex].path = path;
+        } else {
+          tabs.push(tab);
+        }
+      }
+
+      onTabChanged(tabs);
+    }
+
+    function attachListenerToFileNode(rootElm, selector) {
+      const fileNodes = Array.from(rootElm.querySelectorAll(selector));
+
+      fileNodes.forEach((node) => {
+        const path = node.getAttribute("data-path");
+        if (node.classList.contains("active")) activeFile = path;
+
+        node.onclick = () => {
+          openTab(path);
+        };
+        node.ondblclick = () => {
+          openTab(path, false);
+        };
+      });
+
+      tabs = tabs.map((tab) => {
+        if (tab.path === activeFile) {
+          tab.active = true;
+          return tab;
+        } else {
+          tab.active = false;
+          return tab;
+        }
+      });
+
+      onTabChanged(tabs);
+    }
+
+    fileTreeObserver.observe(fileLibrary, {
+      childList: true,
+      subtree: true,
+      attributeFilter: ["class"],
+    });
+
+    searchResultObserver.observe(searchResult, {
+      childList: true,
+      subtree: true,
+      attributeFilter: ["class"],
+    });
+
+    // listViewObserver.observe(listView, {
+    //   childList: true,
+    //   subtree: true,
+    //   attributeFilter: ["class"],
+    // });
+
+    setTimeout(() => {
+      const activeElm = fileLibrary.querySelector(
+        "div.active[data-path][data-is-directory=false]"
+      );
+      if (!activeElm) return;
+      const path = activeElm.getAttribute("data-path");
+      tabs.push({ path, preview: false, active: true, scrollTop: 0 });
+      onTabChanged(tabs);
+    }, 500);
+
+    //___REMEMBER-SCROLL-POSITION___
+
+    const contentNode = document.getElementsByTagName("content")[0];
+    document.getElementById("write");
+    document.getElementById("outline-content");
+
+    function onMount() {
+      const TopBar = document.getElementById("svelte-target");
+
+      let mouseOverSideBar = false;
+      let mouseOverBar = false;
+
+      fileLibrary.onmouseenter = () => {
+        mouseOverSideBar = true;
+      };
+
+      fileLibrary.onmouseleave = () => {
+        mouseOverSideBar = false;
+      };
+
+      TopBar.onmouseenter = () => {
+        mouseOverBar = true;
+      };
+
+      TopBar.onmouseleave = () => {
+        mouseOverBar = false;
+      };
+
+      contentNode.onscroll = () => {
+        const activeTabIndex = tabs.findIndex((tab) => tab.active);
+        if (activeTabIndex > -1 && !(mouseOverSideBar || mouseOverBar)) {
+          tabs[activeTabIndex].scrollTop = contentNode.scrollTop;
+        } else if (activeTabIndex > -1) {
+          contentNode.scrollTop = tabs[activeTabIndex].scrollTop;
+        }
+      };
+    }
+
+    var tabs$1 = /*#__PURE__*/Object.freeze({
+        __proto__: null,
+        addEventListener: addEventListener,
+        openFile: openFile,
+        closeFile: closeFile,
+        onMount: onMount
+    });
+
+    /* src\lib\TabBar.svelte generated by Svelte v3.46.4 */
+
+    const { console: console_1$1 } = globals;
+    const file$1 = "src\\lib\\TabBar.svelte";
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[18] = list[i];
+    	child_ctx[20] = i;
+    	return child_ctx;
+    }
+
+    // (59:2) {#if mouseClientX && draggedItemIndex !== null}
+    function create_if_block(ctx) {
+    	let div;
+    	let tab;
+    	let current;
+
+    	tab = new Tab({
+    			props: {
+    				path: /*draggedItemData*/ ctx[3].path,
+    				active: /*draggedItemData*/ ctx[3].active,
+    				preview: /*draggedItemData*/ ctx[3].preview,
+    				single: /*tabList*/ ctx[0].length === 1
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			create_component(tab.$$.fragment);
+    			attr_dev(div, "class", "tab-clone svelte-pb8ij7");
+    			set_style(div, "left", /*mouseClientX*/ ctx[4] - /*mouseGrabOffset*/ ctx[5] - (/*cloneContainer*/ ctx[6]?.getBoundingClientRect()?.left ?? 0) + "px");
+    			add_location(div, file$1, 59, 4, 1317);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			mount_component(tab, div, null);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const tab_changes = {};
+    			if (dirty & /*draggedItemData*/ 8) tab_changes.path = /*draggedItemData*/ ctx[3].path;
+    			if (dirty & /*draggedItemData*/ 8) tab_changes.active = /*draggedItemData*/ ctx[3].active;
+    			if (dirty & /*draggedItemData*/ 8) tab_changes.preview = /*draggedItemData*/ ctx[3].preview;
+    			if (dirty & /*tabList*/ 1) tab_changes.single = /*tabList*/ ctx[0].length === 1;
+    			tab.$set(tab_changes);
+
+    			if (!current || dirty & /*mouseClientX, mouseGrabOffset, cloneContainer*/ 112) {
+    				set_style(div, "left", /*mouseClientX*/ ctx[4] - /*mouseGrabOffset*/ ctx[5] - (/*cloneContainer*/ ctx[6]?.getBoundingClientRect()?.left ?? 0) + "px");
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(tab.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(tab.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_component(tab);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block.name,
+    		type: "if",
+    		source: "(59:2) {#if mouseClientX && draggedItemIndex !== null}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (85:2) {#each tabList as tab, index (tab.path)}
+    function create_each_block(key_1, ctx) {
+    	let div;
+    	let tab;
+    	let t;
+    	let current;
+    	let mounted;
+    	let dispose;
+
+    	tab = new Tab({
+    			props: {
+    				path: /*tab*/ ctx[18].path,
+    				active: /*tab*/ ctx[18].active,
+    				preview: /*tab*/ ctx[18].preview,
+    				single: /*tabList*/ ctx[0].length === 1
+    			},
+    			$$inline: true
+    		});
+
+    	tab.$on("openfile", /*openfile_handler*/ ctx[12]);
+    	tab.$on("closefile", /*closefile_handler*/ ctx[13]);
+
+    	function mousedown_handler(...args) {
+    		return /*mousedown_handler*/ ctx[14](/*tab*/ ctx[18], /*index*/ ctx[20], ...args);
+    	}
+
+    	function mouseover_handler(...args) {
+    		return /*mouseover_handler*/ ctx[15](/*index*/ ctx[20], ...args);
+    	}
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			div = element("div");
+    			create_component(tab.$$.fragment);
+    			t = space();
+    			attr_dev(div, "class", "grab-container svelte-pb8ij7");
+    			toggle_class(div, "invisible", /*tab*/ ctx[18].path === /*draggedItemData*/ ctx[3]?.path);
+    			add_location(div, file$1, 86, 4, 2042);
+    			this.first = div;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			mount_component(tab, div, null);
+    			append_dev(div, t);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(div, "mousedown", stop_propagation(mousedown_handler), false, false, true),
+    					listen_dev(div, "mouseover", mouseover_handler, false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			const tab_changes = {};
+    			if (dirty & /*tabList*/ 1) tab_changes.path = /*tab*/ ctx[18].path;
+    			if (dirty & /*tabList*/ 1) tab_changes.active = /*tab*/ ctx[18].active;
+    			if (dirty & /*tabList*/ 1) tab_changes.preview = /*tab*/ ctx[18].preview;
+    			if (dirty & /*tabList*/ 1) tab_changes.single = /*tabList*/ ctx[0].length === 1;
+    			tab.$set(tab_changes);
+
+    			if (dirty & /*tabList, draggedItemData*/ 9) {
+    				toggle_class(div, "invisible", /*tab*/ ctx[18].path === /*draggedItemData*/ ctx[3]?.path);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(tab.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(tab.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_component(tab);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block.name,
+    		type: "each",
+    		source: "(85:2) {#each tabList as tab, index (tab.path)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$1(ctx) {
+    	let t0;
+    	let div0;
+    	let t1;
+    	let div1;
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
+    	let current;
+    	let mounted;
+    	let dispose;
+    	let if_block = /*mouseClientX*/ ctx[4] && /*draggedItemIndex*/ ctx[1] !== null && create_if_block(ctx);
+    	let each_value = /*tabList*/ ctx[0];
+    	validate_each_argument(each_value);
+    	const get_key = ctx => /*tab*/ ctx[18].path;
+    	validate_each_keys(ctx, each_value, get_each_context, get_key);
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		let child_ctx = get_each_context(ctx, each_value, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block(key, child_ctx));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			t0 = space();
+    			div0 = element("div");
+    			if (if_block) if_block.c();
+    			t1 = space();
+    			div1 = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr_dev(div0, "class", "clone-container svelte-pb8ij7");
+    			add_location(div0, file$1, 57, 0, 1204);
+    			attr_dev(div1, "class", "container svelte-pb8ij7");
+    			set_style(div1, "width", "calc(100vw - var(--sidebar-width, 0))");
+    			add_location(div1, file$1, 75, 0, 1698);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, div0, anchor);
+    			if (if_block) if_block.m(div0, null);
+    			/*div0_binding*/ ctx[11](div0);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, div1, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div1, null);
+    			}
+
+    			/*div1_binding*/ ctx[16](div1);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(document.body, "mousemove", /*mousemove_handler*/ ctx[8], false, false, false),
+    					listen_dev(document.body, "mouseup", /*mouseup_handler*/ ctx[9], false, false, false),
+    					listen_dev(document.body, "mouseleave", /*mouseleave_handler*/ ctx[10], false, false, false),
+    					listen_dev(div1, "wheel", prevent_default(/*wheel_handler*/ ctx[17]), false, true, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (/*mouseClientX*/ ctx[4] && /*draggedItemIndex*/ ctx[1] !== null) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+
+    					if (dirty & /*mouseClientX, draggedItemIndex*/ 18) {
+    						transition_in(if_block, 1);
+    					}
+    				} else {
+    					if_block = create_if_block(ctx);
+    					if_block.c();
+    					transition_in(if_block, 1);
+    					if_block.m(div0, null);
+    				}
+    			} else if (if_block) {
+    				group_outros();
+
+    				transition_out(if_block, 1, 1, () => {
+    					if_block = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (dirty & /*tabList, draggedItemData, draggedItemIndex, mouseClientX, mouseGrabOffset, hoveredItemIndex, tabs*/ 63) {
+    				each_value = /*tabList*/ ctx[0];
+    				validate_each_argument(each_value);
+    				group_outros();
+    				validate_each_keys(ctx, each_value, get_each_context, get_key);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div1, outro_and_destroy_block, create_each_block, null, get_each_context);
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(div0);
+    			if (if_block) if_block.d();
+    			/*div0_binding*/ ctx[11](null);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(div1);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d();
+    			}
+
+    			/*div1_binding*/ ctx[16](null);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$1.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$1($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('TabBar', slots, []);
+
+    	addEventListener(newTabs => {
+    		$$invalidate(0, tabList = newTabs);
+    	});
+
+    	onMount$1(() => {
+    		onMount();
+    	});
+
+    	let tabList = [];
+    	let draggedItemData = {};
+    	let draggedItemIndex = null;
+    	let hoveredItemIndex = null;
+    	let mouseClientX;
+    	let mouseGrabOffset;
+    	let cloneContainer;
+    	let scrollContainer;
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1$1.warn(`<TabBar> was created with unknown prop '${key}'`);
+    	});
+
+    	const mousemove_handler = e => {
+    		$$invalidate(4, mouseClientX = e.clientX);
+    	};
+
+    	const mouseup_handler = e => {
+    		$$invalidate(3, draggedItemData = {});
+    		$$invalidate(1, draggedItemIndex = null);
+    		$$invalidate(2, hoveredItemIndex = null);
+    		$$invalidate(4, mouseClientX = e.clientX);
+    	};
+
+    	const mouseleave_handler = e => {
+    		$$invalidate(3, draggedItemData = {});
+    		$$invalidate(1, draggedItemIndex = null);
+    		$$invalidate(2, hoveredItemIndex = null);
+    		$$invalidate(4, mouseClientX = e.clientX);
+    	};
+
+    	function div0_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			cloneContainer = $$value;
+    			$$invalidate(6, cloneContainer);
+    		});
+    	}
+
+    	const openfile_handler = e => {
+    		openFile(e.detail.path);
+    	};
+
+    	const closefile_handler = e => {
+    		closeFile(e.detail.path);
+    	};
+
+    	const mousedown_handler = (tab, index, e) => {
+    		$$invalidate(3, draggedItemData = tab);
+    		$$invalidate(1, draggedItemIndex = index);
+    		$$invalidate(4, mouseClientX = e.clientX);
+    		$$invalidate(5, mouseGrabOffset = e.clientX - e.target.getBoundingClientRect().left);
+    	};
+
+    	const mouseover_handler = (index, e) => {
+    		$$invalidate(2, hoveredItemIndex = index);
+    	};
+
+    	function div1_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			scrollContainer = $$value;
+    			$$invalidate(7, scrollContainer);
+    		});
+    	}
+
+    	const wheel_handler = e => {
+    		console.log(e.deltaY);
+    		$$invalidate(7, scrollContainer.scrollLeft += e.deltaY, scrollContainer);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		Tab,
+    		tabs: tabs$1,
+    		onMount: onMount$1,
+    		tabList,
+    		draggedItemData,
+    		draggedItemIndex,
+    		hoveredItemIndex,
+    		mouseClientX,
+    		mouseGrabOffset,
+    		cloneContainer,
+    		scrollContainer
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('tabList' in $$props) $$invalidate(0, tabList = $$props.tabList);
+    		if ('draggedItemData' in $$props) $$invalidate(3, draggedItemData = $$props.draggedItemData);
+    		if ('draggedItemIndex' in $$props) $$invalidate(1, draggedItemIndex = $$props.draggedItemIndex);
+    		if ('hoveredItemIndex' in $$props) $$invalidate(2, hoveredItemIndex = $$props.hoveredItemIndex);
+    		if ('mouseClientX' in $$props) $$invalidate(4, mouseClientX = $$props.mouseClientX);
+    		if ('mouseGrabOffset' in $$props) $$invalidate(5, mouseGrabOffset = $$props.mouseGrabOffset);
+    		if ('cloneContainer' in $$props) $$invalidate(6, cloneContainer = $$props.cloneContainer);
+    		if ('scrollContainer' in $$props) $$invalidate(7, scrollContainer = $$props.scrollContainer);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*draggedItemIndex, hoveredItemIndex, tabList*/ 7) {
+    			{
+    				if (draggedItemIndex !== null && hoveredItemIndex !== null && draggedItemIndex !== hoveredItemIndex) {
+    					$$invalidate(0, [tabList[draggedItemIndex], tabList[hoveredItemIndex]] = [tabList[hoveredItemIndex], tabList[draggedItemIndex]], tabList);
+    					$$invalidate(1, draggedItemIndex = hoveredItemIndex);
+    				}
+    			}
+    		}
+    	};
+
+    	return [
+    		tabList,
+    		draggedItemIndex,
+    		hoveredItemIndex,
+    		draggedItemData,
+    		mouseClientX,
+    		mouseGrabOffset,
+    		cloneContainer,
+    		scrollContainer,
+    		mousemove_handler,
+    		mouseup_handler,
+    		mouseleave_handler,
+    		div0_binding,
+    		openfile_handler,
+    		closefile_handler,
+    		mousedown_handler,
+    		mouseover_handler,
+    		div1_binding,
+    		wheel_handler
+    	];
+    }
+
+    class TabBar extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "TabBar",
+    			options,
+    			id: create_fragment$1.name
+    		});
+    	}
+    }
+
+    /* src\App.svelte generated by Svelte v3.46.4 */
+
+    const { console: console_1 } = globals;
+    const file = "src\\App.svelte";
+
+    function create_fragment(ctx) {
+    	let div1;
+    	let div0;
+    	let tabbar;
+    	let current;
+    	tabbar = new TabBar({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			div0 = element("div");
+    			create_component(tabbar.$$.fragment);
+    			attr_dev(div0, "class", "tab-bar-container svelte-1vhgd3o");
+    			add_location(div0, file, 6, 2, 135);
+    			attr_dev(div1, "class", "container svelte-1vhgd3o");
+    			add_location(div1, file, 5, 0, 108);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			mount_component(tabbar, div0, null);
+    			current = true;
+    		},
+    		p: noop,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(tabbar.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(tabbar.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    			destroy_component(tabbar);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('App', slots, []);
+    	console.log("Tabs Plugin Running!");
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1.warn(`<App> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$capture_state = () => ({ TabBar });
+    	return [];
+    }
+
+    class App extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance, create_fragment, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "App",
+    			options,
+    			id: create_fragment.name
+    		});
+    	}
+    }
+
+    const target = document.createElement("div");
+    target.setAttribute("id", "svelte-target");
+
+    document
+      .getElementById("write-style")
+      .parentElement.insertBefore(target, document.getElementById("write-style"));
+
+    const app = new App({
+      target: target,
+    });
+
+    return app;
+
+})();
 //# sourceMappingURL=bundle.js.map

@@ -133,30 +133,34 @@ const contentNode = document.getElementsByTagName("content")[0];
 const writeNode = document.getElementById("write");
 const outlineNode = document.getElementById("outline-content");
 
-let mouseOverContent = false;
-let mouseOverOutline = false;
+export function onMount() {
+  const TopBar = document.getElementById("svelte-target");
 
-writeNode.onmouseenter = () => {
-  mouseOverContent = true;
-};
+  let mouseOverSideBar = false;
+  let mouseOverBar = false;
 
-writeNode.onmouseleave = () => {
-  mouseOverContent = false;
-};
+  fileLibrary.onmouseenter = () => {
+    mouseOverSideBar = true;
+  };
 
-outlineNode.onmouseenter = () => {
-  mouseOverOutline = true;
-};
+  fileLibrary.onmouseleave = () => {
+    mouseOverSideBar = false;
+  };
 
-outlineNode.onmouseleave = () => {
-  mouseOverOutline = false;
-};
+  TopBar.onmouseenter = () => {
+    mouseOverBar = true;
+  };
 
-contentNode.onscroll = () => {
-  const activeTabIndex = tabs.findIndex((tab) => tab.active);
-  if (activeTabIndex > -1 && (mouseOverContent || mouseOverOutline)) {
-    tabs[activeTabIndex].scrollTop = contentNode.scrollTop;
-  } else if (activeTabIndex > -1) {
-    contentNode.scrollTop = tabs[activeTabIndex].scrollTop;
-  }
-};
+  TopBar.onmouseleave = () => {
+    mouseOverBar = false;
+  };
+
+  contentNode.onscroll = () => {
+    const activeTabIndex = tabs.findIndex((tab) => tab.active);
+    if (activeTabIndex > -1 && !(mouseOverSideBar || mouseOverBar)) {
+      tabs[activeTabIndex].scrollTop = contentNode.scrollTop;
+    } else if (activeTabIndex > -1) {
+      contentNode.scrollTop = tabs[activeTabIndex].scrollTop;
+    }
+  };
+}
