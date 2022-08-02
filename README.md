@@ -11,6 +11,10 @@ Behavior is mainly the same as VSCode
 - Drag to move the tab
 - Scroll to to reveal all tabs
 
+## News
+
+Typora `1.3.8` changed the `typora://userData` folder path to `typora://app/userData`.
+If you updated to the newest version and the plugin stops working, simply edit the paths in your `<your_installation_path>/Typora/resources/window.html` file or redo the [installation](#add-plugin-to-typora) steps.
 
 ## Installation
 
@@ -38,8 +42,8 @@ You should now have a folder structure that looks like this: ``%userprofile%/App
     Insert the lines:
 
   ```html
-  <script src="typora://userData/plugins/tabbar/bundle.js" defer></script>
-  <link rel="stylesheet" href="typora://userData/plugins/tabbar/bundle.css">
+  <script src="typora://app/userData/plugins/tabbar/bundle.js" defer></script>
+  <link rel="stylesheet" href="typora://app/userData/plugins/tabbar/bundle.css">
   ```
 
   Exactly after ``<!DOCTYPE html><html lang="en"><head>``.
@@ -52,8 +56,8 @@ Your ``window.html`` should now look something like this:
 
 ```html
 <!doctype html><html lang="en"><head>
-    <script src="typora://userData/plugins/tabbar/bundle.js" defer></script>
-	<link rel="stylesheet" href="typora://userData/plugins/tabbar/bundle.css">
+    <script src="typora://app/userData/plugins/tabbar/bundle.js" defer></script>
+	<link rel="stylesheet" href="typora://app/userData/plugins/tabbar/bundle.css">
     <meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     [...]
 ```
@@ -70,7 +74,7 @@ Save the plugin to your Typora user folder or any other folder.
 
 **Add Plugin to Typora**
 
-Find the ``resources/window.html`` file in your Typora installation location and perform step 3. and 4. in [Add Plugin to Typora](#add-plugin-to-typora) (replace the src and href attributes with a path to your plugin location).
+Find the ``resources/window.html`` file in your Typora installation location and perform step 3. and 4. in [Add Plugin to Typora](#add-plugin-to-typora) (replace the src and href attributes with the path to your plugin location).
 
 
 
