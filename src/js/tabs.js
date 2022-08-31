@@ -164,3 +164,66 @@ export function onMount() {
     }
   };
 }
+
+const loadTimer = setInterval(() => {
+  if (File) {
+    handleUrls();
+    clearInterval(loadTimer);
+  }
+}, 500);
+
+function handleUrls() {
+  const urlPattern =
+    /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
+
+  const tryOpenUrlCopy = File.editor.tryOpenUrl;
+  File.editor.tryOpenUrl = (e, t) => {
+    if (e.match(urlPattern)) {
+      tryOpenUrlCopy.apply(this, [e, t]);
+    } else if (e.match(/^#/)) {
+      let anchorElement = editor.EditHelper.findAnchorElem(e);
+      anchorElement && editor.selection.jumpIntoElemBegin(anchorElement);
+      editor.selection.scrollAdjust(anchorElement, 10);
+    } else if (
+      [
+        ".md",
+        ".markdown",
+        ".mmd",
+        ".text",
+        ".txt",
+        ".mdown",
+        ".mdwn",
+        ".apib",
+      ].includes(e.substring(e.lastIndexOf(".")).trim())
+    ) {
+      openFromLink(e);
+    } else {
+      tryOpenUrlCopy.apply(this, [e, t]);
+    }
+  };
+}
+
+
+function openFromLink(link) {
+  if (!link) return;
+  const path = getAbsolutePath(File.bundle.filePath, link);
+
+  openFile(path);
+}
+
+function getAbsolutePath(currLocation, newLocation) {
+  if (!currLocation) return "";
+  if (!newLocation) return "";
+
+  currLocation = currLocation.split(/[\\\/]/g);
+  currLocation.pop();
+
+  newLocation
+    .split(/[\\\/]/g)
+    .filter((item) => item != ".")
+    .forEach((item) => {
+      item === ".." ? currLocation.pop() : currLocation.push(item);
+    });
+
+  return currLocation.join("\\");
+}
